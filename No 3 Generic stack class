@@ -1,0 +1,36 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Generic Stack class using templates
+template <typename T>
+class Stack {
+    vector<T> items;  // underlying container
+public:
+    void push(T value) { items.push_back(value); }
+    void pop() { if (!items.empty()) items.pop_back(); }
+    T top() { return items.back(); }
+    bool empty() { return items.empty(); }
+};
+
+// Demonstration
+int main() {
+    // Stack of integers
+    Stack<int> intStack;
+    intStack.push(10);
+    intStack.push(20);
+    cout << "Top of int stack: " << intStack.top() << endl;
+    intStack.pop();
+    cout << "Top after pop: " << intStack.top() << endl;
+
+    // Stack of strings
+    Stack<string> strStack;
+    strStack.push("Hello");
+    strStack.push("World");
+    cout << "Top of string stack: " << strStack.top() << endl;
+    strStack.pop();
+    cout << "Top after pop: " << strStack.top() << endl;
+
+    return 0;
+}
